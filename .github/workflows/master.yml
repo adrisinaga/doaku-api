@@ -17,4 +17,4 @@ jobs:
         server: carryu.id
         username: ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
-        server-dir: /public_html/carryu.id/
+        server-dir: /doa/

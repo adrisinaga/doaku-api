@@ -5,7 +5,6 @@ use App\Models\Doa;
 use Exception;
 use Illuminate\Http\Request;
 
-
 class DoaController extends Controller{
     public function __construct()
     {}
@@ -57,5 +56,32 @@ class DoaController extends Controller{
         }catch(Exception $e){
             echo $e;
         }
+    }
+
+    public function delete($id)
+    {
+        $doa = Doa::find($id);
+
+        if ($doa) {
+            $delete = $doa->delete();
+
+            if ($delete) { // Jika berhasil
+                return response()->json([
+                    'status' => "Berhasil Menghapus Doa",
+                    'data' => $doa,
+                ]);
+            } else {
+                return response()->json([
+                    'status' => "Gagal Menghapus Doa",
+                    'data' => null,
+                ]);
+            }
+        } else {
+            return response()->json([
+                'status' => "Doa tidak ditemukan",
+                'data' => null,
+            ]);
+        }
+
     }
 }

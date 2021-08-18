@@ -16,12 +16,23 @@ $router->delete('artikel/delete/{id}','ArtikelController@delete');
 $router->get('doa', 'DoaController@get');
 // POST Tambah Doa {id}
 $router->post('doa','DoaController@add');
-// GET Cek Doa
+// DELETE Hapus Doa {id}
+$router->delete('doa/{id}','DoaController@delete');
 
+// GET All Renungan
+$router->get('renungan','RenunganController@get');
 
+// GET Profil User
 
 // ADMIN
-// GET Renungan
+// GET Renungan Per Admin
+$router->get('renungan/getId/{id_admin}','RenunganController@getId');
 // POST Tambah Renungan {id}
+$router->post('renungan','RenunganController@add');
 // PUT Edit Renungan
+$router->put('renungan/{id}','RenunganController@update');
 // DELETE Hapus Renungan
+$router->delete('renungan/{id}','RenunganController@delete');
+
+// GET Profil Admin
+$router->get('admin/getId/{id_admin}','AdminController@getId');

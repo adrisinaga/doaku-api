@@ -12,7 +12,8 @@
 */
 
 // $app = require __DIR__.'/../bootstrap/app.php';
-$app = require __DIR__.'/bootstrap/app.php';
+// $app = require __DIR__.'/bootstrap/app.php';
+$app = require __DIR__.'../doa/bootstrap/app.php';
 // $app = require __DIR__.'/bootstrap/app.php';
 
 

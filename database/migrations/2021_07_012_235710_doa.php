@@ -11,6 +11,7 @@ class Doa extends Migration{
             $table->id();
             $table->text('isi_doa');
             $table->string('id_user');
+            $table->integer('jumlah_orang_berdoa');
             $table->timestamps();
         });
     }

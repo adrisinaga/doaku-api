@@ -19,6 +19,9 @@ $router->post('doa','DoaController@add');
 // DELETE Hapus Doa {id}
 $router->delete('doa/{id}','DoaController@delete');
 
+// Mendoakan
+$router->post('berdoa','DoaController@berdoa');
+
 // GET All Renungan
 $router->get('renungan','RenunganController@get');
 

@@ -15,8 +15,17 @@ class DoaSeeder extends Seeder
             [
                 'isi_doa' => 'Ya Tuhan, selamatkanlah kami.', 
                 'id_user' => '1',
+                'jumlah_orang_berdoa' => '2',
                 'created_at' => $now, 
-                'updated_at' => $now],
+                'updated_at' => $now,
+            ],
+            [
+                'isi_doa' => 'Doakanlah Kami ya Tuhan', 
+                'id_user' => '1',
+                'jumlah_orang_berdoa' => '2',
+                'created_at' => $now, 
+                'updated_at' => $now,
+            ],
         ]);
     }
 }

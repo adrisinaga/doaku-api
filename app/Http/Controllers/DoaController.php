@@ -36,7 +36,7 @@ class DoaController extends Controller{
         try{
             $isi_doa = $request->isi_doa;
             $id_user = $request->id_user;
-            $jumlah_orang_berdoa = 0;
+            $jumlah_orang_berdoa = '0';
     
             $add = Doa::create([
                 'isi_doa' => $isi_doa,

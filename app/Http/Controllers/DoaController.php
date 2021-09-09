@@ -16,7 +16,7 @@ class DoaController extends Controller
     {
         try {
 
-            $data = Doa::select('doa.id', 'doa.isi_doa', 'doa.jumlah_orang_berdoa','user.nama')
+            $data = Doa::select('doa.id', 'doa.isi_doa', 'doa.jumlah_orang_berdoa','user.nama','doa.created_at','doa.updated_at')
                 ->join('user','user.id','=','doa.id_user')
                 ->get();
             // $data['user'] = User::find($id_user);

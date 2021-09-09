@@ -13,11 +13,10 @@ class UserController extends Controller{
         $id_user = User::find($id_user);
         if($id_user){
             try{
-                $data = User::get();
                 return response()->json(
                     [
                         'status' => "Berhasil ambil data User",
-                        'data' => $data,
+                        'data' => $id_user,
                     ]
                 );
             }catch(Exception $e){

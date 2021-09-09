@@ -1,25 +1,43 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Doa;
 use Exception;
 use Illuminate\Http\Request;
+use App\Models\User;
 
-class DoaController extends Controller{
+class DoaController extends Controller
+{
     public function __construct()
-    {}
+    { }
 
     public function get()
     {
-        try{
-            $data = Doa::get();
+        try {
+
+            $data = Doa::select('doa.id', 'doa.isi_doa', 'doa.jumlah_orang_berdoa','user.nama')
+                ->join('user','user.id','=','doa.id_user')
+                ->get();
+            // $data['user'] = User::find($id_user);
+
+            // $data['doa'] = Doa::get(
+            //     [   
+            //         'id',
+            //         'isi_doa',
+            //         'jumlah_orang_berdoa',
+            //     ]
+            // );
+
+            // $data = Doa::get();
             return response()->json(
                 [
                     'status' => "Berhasil ambil data Doa",
                     'data' => $data,
                 ]
             );
-        }catch(Exception $e){
+           
+        } catch (Exception $e) {
             echo $e;
         }
     }
@@ -27,23 +45,24 @@ class DoaController extends Controller{
     public function add(Request $request)
     {
         $this->validate(
-            $request, [
+            $request,
+            [
                 'isi_doa' => 'required',
                 'id_user' => 'required',
             ]
         );
 
-        try{
+        try {
             $isi_doa = $request->isi_doa;
             $id_user = $request->id_user;
             $jumlah_orang_berdoa = '0';
-    
+
             $add = Doa::create([
                 'isi_doa' => $isi_doa,
                 'id_user' => $id_user,
                 'jumlah_orang_berdoa' => $jumlah_orang_berdoa,
             ]);
-    
+
             if ($add) { // Jika berhasil
                 return response()->json([
                     'status' => "Berhasil Menambah Doa",
@@ -54,8 +73,8 @@ class DoaController extends Controller{
                     'status' => "Gagal Menambah Doa",
                     'data' => null,
                 ]);
-            } 
-        }catch(Exception $e){
+            }
+        } catch (Exception $e) {
             echo $e;
         }
     }
@@ -84,12 +103,13 @@ class DoaController extends Controller{
                 'data' => null,
             ]);
         }
-
     }
 
-    public function berdoa(Request $request){
+    public function berdoa(Request $request)
+    {
         $this->validate(
-            $request, [
+            $request,
+            [
                 'id_doa'          =>  'required',
                 'id_user'         =>  'required',
             ]
@@ -99,10 +119,10 @@ class DoaController extends Controller{
         $id_user = $request->id_user;
 
         $doa = Doa::find($id_doa);
-        
-        if($doa){
+
+        if ($doa) {
             $total_jumlah = $doa->jumlah_orang_berdoa;
-            $total_doa = $total_jumlah+1;
+            $total_doa = $total_jumlah + 1;
 
             $update = $doa->update([
                 'jumlah_orang_berdoa' => $total_doa,
@@ -119,7 +139,7 @@ class DoaController extends Controller{
                     'data' => null,
                 ]);
             }
-        }else{
+        } else {
             return response()->json([
                 'status' => "Doa tidak ditemukan",
                 'data' => null,

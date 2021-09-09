@@ -15,7 +15,7 @@ class AdminSeeder extends Seeder
             [
                 'name'              =>  'Admin DoaKu',
                 'email'             =>  'admin@doaku.com',
-                'password'          =>  '',
+                'password'          =>  '123',
                 'created_at'        =>  $now,
                 'updated_at'        =>  $now
             ],

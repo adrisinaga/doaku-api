@@ -14,9 +14,20 @@ class UserSeeder extends Seeder
         User::insert([
             [
                 'nama' => 'Adri', 
+                'email'             =>  'fcb.sinaga@gmail.com',
+                'password'          =>  '123',
                 'tentang' => 'Tekun berdoa',
                 'created_at' => $now, 
-                'updated_at' => $now],
+                'updated_at' => $now
+            ],
+            [
+                'nama' => 'Diana', 
+                'email'             =>  'diana@gmail.com',
+                'password'          =>  '123',
+                'tentang' => 'Tekun sekali menggambar',
+                'created_at' => $now, 
+                'updated_at' => $now
+            ],
         ]);
     }
 }

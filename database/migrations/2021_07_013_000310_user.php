@@ -13,6 +13,7 @@ class User extends Migration{
             $table->string('email',20);
             $table->string('password',50);
             $table->string('tentang');
+            $table->string('role',20);
             $table->timestamps();
         });
     }

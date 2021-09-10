@@ -13,19 +13,30 @@ class UserSeeder extends Seeder
         $now = Carbon::now()->toDateTimeString();
         User::insert([
             [
-                'nama' => 'Adri', 
-                'email'             =>  'fcb.sinaga@gmail.com',
-                'password'          =>  '123',
+                'nama' => 'Admin',
+                'email'             =>  'admin',
+                'password'          =>  'admin',
                 'tentang' => 'Tekun berdoa',
-                'created_at' => $now, 
+                'role' => 'admin',
+                'created_at' => $now,
                 'updated_at' => $now
             ],
             [
-                'nama' => 'Diana', 
-                'email'             =>  'diana@gmail.com',
+                'nama' => 'Adri',
+                'email'             =>  'fcb.sinaga@gmail.com',
                 'password'          =>  '123',
+                'tentang' => 'Tekun berdoa',
+                'role' => 'user',
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'nama' => 'Diana',
+                'email' =>  'diana@gmail.com',
+                'password' =>  '123',
                 'tentang' => 'Tekun sekali menggambar',
-                'created_at' => $now, 
+                'role' => 'user',
+                'created_at' => $now,
                 'updated_at' => $now
             ],
         ]);

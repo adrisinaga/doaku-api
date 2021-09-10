@@ -43,7 +43,7 @@ class AuthController extends Controller
         } else {
             return response()->json(
                 [
-                    'status' => "Gagal login",
+                    'status' => "Email dan password tidak cocok",
                     'data' => $auth,
                 ]
             );

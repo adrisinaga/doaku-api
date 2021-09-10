@@ -44,7 +44,7 @@ class AuthController extends Controller
             return response()->json(
                 [
                     'status' => "Email dan password tidak cocok",
-                    'data' => $auth,
+                    'data' => null,
                 ]
             );
         }
